@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "clear && npx tsx main.mts"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2"
+  }
+}
