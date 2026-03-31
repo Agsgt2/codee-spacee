@@ -14,3 +14,7 @@ export function execute<
         throw new Error("Callback name is not a function.");
     }
 }
+
+export function add(a: any, b: any): any {
+    return a + b
+}
