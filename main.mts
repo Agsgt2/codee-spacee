@@ -1,5 +1,15 @@
-import { execute } from "./addons/funcs.mts";
-import * as constants from "./json/constants.json"
-import * as funcs from "./addons/funcs.mts"
+import { shapes } from "./addons/namespaces.mts";
 
-console.log(execute(funcs, "add").call(25, constants.pi))
+let sh1 = new shapes.Shape({
+    kind: "custom",
+    properties: {
+        name: "rectangle"
+    }
+})
+
+sh1.addProperty("size", {
+    width: 10,
+    height: 20
+})
+
+console.log(sh1.getInfo())

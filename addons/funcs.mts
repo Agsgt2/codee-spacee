@@ -15,6 +15,4 @@ export function execute<
     }
 }
 
-export function add(a: any, b: any): any {
-    return a + b
-}
+export default execute
