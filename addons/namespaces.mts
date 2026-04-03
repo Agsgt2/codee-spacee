@@ -1,14 +1,23 @@
 export namespace math {
     export function add(a: string, b: string): string
     export function add(a: number, b: number): number
-    export function add(a: any, b: any){
+    export function add(a: any, b: any) {
         return a + b
     }
-    export function sub(a: number, b: number){
+    export function sub(a: number, b: number) {
         return a - b
     }
-    export function mul(a: number, b: number){
+    export function mul(a: number, b: number) {
         return a * b
+    }
+    export function div(a: number, b: number) {
+        if (a == 0 && b == 0) {
+            return NaN
+        } else if (b == 0) {
+            return Infinity
+        } else {
+            return a / b
+        }
     }
     export const funcs = {
         random: Math.random,
@@ -30,29 +39,27 @@ export namespace shapes {
         kind: "custom";
         properties: Record<string, unknown>
     }
-    export class Shape{
-        protected kind: shapeObject["kind"];
+    export class Shape {
         protected shape: shapeObject;
-        constructor(s: shapeObject){
-            this.kind = s.kind
+        constructor(s: shapeObject) {
             this.shape = s
         }
-        changeSize(size: number){
-            if (this.shape.kind == 'circle'){
+        changeSize(size: number) {
+            if (this.shape.kind == 'circle') {
                 this.shape.radius = size
-            } else if (this.shape.kind == 'square'){
+            } else if (this.shape.kind == 'square') {
                 this.shape.length = size
             }
         }
-        addVertices(...vertices: [number, number][]){
+        addVertices(...vertices: [number, number][]) {
             if (this.shape.kind == "polygon") {
                 this.shape.vertices.push(...vertices)
             }
         }
-        getInfo(){
-            return [this.shape, this.kind]
+        getInfo() {
+            return this.shape
         }
-        addProperty(propName: string, prop: unknown){
+        addProperty(propName: string, prop: unknown) {
             if (this.shape.kind == "custom") {
                 this.shape.properties[propName] = prop
             }
@@ -65,4 +72,11 @@ export namespace types {
     export type BecomePartial<Type> = Type | undefined
     export type OrArray<Type> = Type | Type[]
     export type Empty = undefined
+    export function typeOf<T>(obj: T) {
+        return typeof obj
+    }
+}
+
+export default {
+    math: math, shapes: shapes, types: types
 }

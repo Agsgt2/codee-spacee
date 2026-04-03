@@ -1,15 +1,5 @@
-import { shapes } from "./addons/namespaces.mts";
+import { is_it } from "./addons/is-thirteen.mts";
 
-let sh1 = new shapes.Shape({
-    kind: "custom",
-    properties: {
-        name: "rectangle"
-    }
-})
+const a = is_it(25).math.sub(25-13).thirteen()
 
-sh1.addProperty("size", {
-    width: 10,
-    height: 20
-})
-
-console.log(sh1.getInfo())
+console.log(a)
