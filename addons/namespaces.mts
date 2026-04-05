@@ -77,6 +77,15 @@ export namespace types {
     }
 }
 
+export namespace enums {
+    type tb = 0 | 1 | 2
+    export const tribool = {
+        false: 0 as tb,
+        maybe: 1 as tb,
+        true: 2 as tb
+    } as const
+}
+
 export default {
-    math: math, shapes: shapes, types: types
+    math: math, shapes: shapes, types: types, enums: enums
 }
